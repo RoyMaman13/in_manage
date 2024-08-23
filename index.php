@@ -1,5 +1,4 @@
 <?php
-// index.php
 
 // Run all scripts at server start (or when the index is accessed)
 require 'scripts/create_tables.php';
