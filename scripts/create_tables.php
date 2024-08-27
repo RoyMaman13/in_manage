@@ -3,12 +3,6 @@ require __DIR__ . '/../classes/Database.php';
 $db = new Database();
 $conn = $db->getConnection();
 
-if ($conn) {
-    echo "Connected successfully!";
-} else {
-    echo "Connection failed.";
-}
-
 // Create Users table
 $conn->exec("
     CREATE TABLE IF NOT EXISTS users (
@@ -27,7 +21,7 @@ $conn->exec("
         user_id INT,
         title VARCHAR(255) NOT NULL,
         content TEXT NOT NULL,
-        creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        creation_date_time DATETIME,
         active BOOLEAN DEFAULT TRUE,
         FOREIGN KEY (user_id) REFERENCES users(id)
     )

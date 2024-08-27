@@ -1,14 +1,5 @@
 <?php
 
-// Run all scripts at server start (or when the index is accessed)
-require 'scripts/create_tables.php';
-
-// Include and run the script to populate the tables with data
-require 'scripts/populate_tables.php';
-
-// Include and run the script to fetch and save the avatar image
-require 'scripts/fetch_image.php';
-
 // Optionally, handle routing for other pages
 $page = isset($_GET['page']) ? $_GET['page'] : 'Home';
 echo "<h1 style='text-align: center;'>$page</h1>";
@@ -24,6 +15,9 @@ switch ($page) {
         require 'views/posts_per_hour.php';
         break;
     default:
+        require 'scripts/create_tables.php';
+        require 'scripts/populate_tables.php';
+        require 'scripts/fetch_image.php';
         require 'views/Home.php';        
         break;
 }

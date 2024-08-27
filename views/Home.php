@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Social Media Dashboard</title>
-</head>
 <body>
-    <h1>Welcome to the Social Media Dashboard</h1>
 
     <!-- Form with buttons to navigate to other pages -->
-    <form action="index.php" method="get">
+    <form action="index.php" method="get" style='text-align: center;'>
         <!-- Button for Active Users page -->
         <button type="submit" name="page" value="active_users">Active Users</button>
         <br><br>

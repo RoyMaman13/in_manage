@@ -1,10 +1,9 @@
 <?php
-require_once 'classes/Database.php';
-
+require __DIR__ . '/../classes/Database.php';
 $db = new Database();
 $conn = $db->getConnection();
 
-$posts_per_hour = $db->select("SELECT DATE_FORMAT(creation_date, '%Y-%m-%d %H:00:00') as hour, COUNT(*) as posts_count 
+$posts_per_hour = $db->select("SELECT HOUR(creation_date_time) as hour, COUNT(*) as posts_count 
                               FROM posts 
                               GROUP BY hour");
 
@@ -29,7 +28,7 @@ $posts_per_hour = $db->select("SELECT DATE_FORMAT(creation_date, '%Y-%m-%d %H:00
 
     <?php
     foreach ($posts_per_hour as $row) {
-        echo "<tr><td>{$row['hour']}</td><td>{$row['posts_count']}</td></tr>";
+        echo "<tr><td>{$row['hour']}:00</td><td>{$row['posts_count']}</td></tr>";
     }
     ?>
 </table>
