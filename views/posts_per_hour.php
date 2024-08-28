@@ -18,8 +18,6 @@ $posts_per_hour = $db->select("SELECT HOUR(creation_date_time) as hour, COUNT(*)
 </head>
 <body>
 
-<h1>Number of Posts Per Hour</h1>
-
 <table border="1">
     <tr>
         <th>Date and Time</th>
